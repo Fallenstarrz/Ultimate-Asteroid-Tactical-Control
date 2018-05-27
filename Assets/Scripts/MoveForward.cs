@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBullet : MonoBehaviour {
+public class MoveForward : MonoBehaviour 
+{
+	public float speed;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+	{
+		transform.Translate (0, Time.deltaTime * speed, 0);
 	}
 }
