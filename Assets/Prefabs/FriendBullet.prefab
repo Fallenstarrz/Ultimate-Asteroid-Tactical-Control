@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50283380841624658}
   - component: {fileID: 114681401768949816}
   - component: {fileID: 114787394169698704}
+  - component: {fileID: 114754992866573458}
   m_Layer: 0
   m_Name: FriendBullet
   m_TagString: Player
@@ -100,6 +101,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a60233c838246a4da21fe1cd41f8470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114754992866573458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163461257955768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe9b89cd3bd0c3544833abaf9a93bcb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 1
 --- !u!114 &114787394169698704
 MonoBehaviour:
   m_ObjectHideFlags: 1

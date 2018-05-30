@@ -19,7 +19,6 @@ public class CollisionHandler : MonoBehaviour {
 		if ((other.gameObject.tag != "Level") && (other.gameObject.tag != this.tag)) 
 		{
 			Destroy (other.gameObject);
-			Debug.Log ("Collision Detected");
 		}
 	}
 }

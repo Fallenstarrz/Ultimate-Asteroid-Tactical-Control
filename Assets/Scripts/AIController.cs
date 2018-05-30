@@ -10,7 +10,12 @@ public class AIController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		GameManager.instance.enemiesSpawned.Add (this.gameObject);
 		shootLaser = GetComponent<ShootLaser> ();
+	}
+	void OnDestroy()
+	{
+		GameManager.instance.enemiesSpawned.Remove (this.gameObject);
 	}
 	
 	// Update is called once per frame
