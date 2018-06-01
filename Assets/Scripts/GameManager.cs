@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour 
 {
+	// Static for singleton control pattern
+	public static GameManager instance;
+
+	// Lists for spawning
 	public GameObject[] enemiesList;
 	public Transform[] spawnPoints;
 	public List<GameObject> enemiesSpawned;
-	public static GameManager instance;
+	public int maxEnemies;
 
+	// Player Class Variables
+	public GameObject player;
+	public GameObject spawnedPlayer;
 	public int playerLives;
 
-	private int randomSpawn;
-	private int randomNum;
-
-	// Use this for initialization
-	void Start () 
-	{
-
-	}
-
+	// Ensures there is only 1 of these
 	void Awake ()
 	{
-		if (instance == null) {
+		if (instance == null) 
+		{
 			instance = this;
 			DontDestroyOnLoad (gameObject);
 		} 
@@ -30,19 +30,45 @@ public class GameManager : MonoBehaviour
 		{
 			Destroy (this.gameObject);
 		}
-
 	}
-	
-	// Update is called once per frame
+
 	void Update () 
 	{
-		// This will control the number of enemies spawned
-		if (enemiesSpawned.Count < 3)
+		SpawnEnemy();
+		SpawnPlayer();
+		EndGame ();
+	}
+
+	// This will spawn enemies
+	void SpawnEnemy()
+	{
+		// Spawn only 3 enemies
+		if (enemiesSpawned.Count < maxEnemies)
 		{
-			randomSpawn = Random.Range (0, spawnPoints.Length);
-			randomNum = Random.Range(0,9);
-			// Spawn enemies
-			Instantiate (enemiesList[randomNum], spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation);
+			int randomSpawnPoint = Random.Range (0, spawnPoints.Length);
+			int randomNum = Random.Range(0,9);
+			Vector3 spawnNearby = Random.insideUnitCircle;
+			Vector3 spawnLocation = spawnPoints[randomSpawnPoint].position + spawnNearby;
+			Instantiate (enemiesList[randomNum], spawnLocation , spawnPoints[randomSpawnPoint].rotation); // Need to use Random.insideUnitCircle
+		}
+	}
+
+	// This will Spawn Player
+	void SpawnPlayer()
+	{
+		if (spawnedPlayer == null && playerLives >= 0)
+		{
+			spawnedPlayer = Instantiate (player);
+		}
+	}
+
+	// Ends the Game
+	void EndGame()
+	{
+		if (playerLives < 0) 
+		{
+			Application.Quit ();
+			Debug.Log("EXITING GAME!");
 		}
 	}
 }

@@ -9,20 +9,24 @@ public class PlayerController : MonoBehaviour
 	public Vector2 playerStartPosition;
 	private ShootLaser shootLaser;
 
-	// Use this for initialization
 	void Start () 
 	{
 		// When object is constructed set it's position to the designer defined startPosition
 		transform.position = playerStartPosition;
 		shootLaser = GetComponent<ShootLaser> ();
 	}
-	
-	// Update is called once per frame
+
 	void Update () 
 	{
 		moveForward ();
 		rotate ();
 		fireLaser ();
+	}
+
+	// decrease playerLives by 1 on destroy
+	void OnDestroy()
+	{
+		GameManager.instance.playerLives -= 1;
 	}
 
 	// This controls player forward movement

@@ -11,8 +11,11 @@ public class TargetPlayer : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		player = GameObject.Find ("PlayerCharacter").transform as Transform;
-		if (player != null) 
+		if (GameManager.instance.player)
+		{
+			player = GameManager.instance.spawnedPlayer.transform as Transform;
+		}
+		if (player) 
 		{
 			TargetInstantly ();
 		}
@@ -21,7 +24,7 @@ public class TargetPlayer : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if ((tracking == true) && (player != null))
+		if ((tracking == true) && (player))
 		{
 			TargetDelayed ();
 		}
