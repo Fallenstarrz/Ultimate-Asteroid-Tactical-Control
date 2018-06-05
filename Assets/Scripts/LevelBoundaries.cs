@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelBoundaries : MonoBehaviour 
 {
 
-	// Use a trigger box as level bounds, if anythign with tags player, or enemy leave then destroy them
+	// Use a trigger box as level bounds, if anything with tags player or enemy leave then destroy them
 	void OnTriggerExit2D (Collider2D other)
 	{
 		if(other.gameObject.tag == "Player")

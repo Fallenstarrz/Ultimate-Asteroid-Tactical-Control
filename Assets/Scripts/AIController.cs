@@ -14,7 +14,7 @@ public class AIController : MonoBehaviour
 		shootLaser = GetComponent<ShootLaser> ();
 	}
 
-	// Remove this objkect from enemiesSpawned List
+	// Remove this object from enemiesSpawned List
 	void OnDestroy()
 	{
 		GameManager.instance.enemiesSpawned.Remove (this.gameObject);

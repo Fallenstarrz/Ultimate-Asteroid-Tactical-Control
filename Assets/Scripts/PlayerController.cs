@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 		fireLaser ();
 	}
 
-	// Remove 1 life from Gamemanager and destroy all spawned enemies
+	// Remove 1 life from GameManager and destroy all spawned enemies
 	void OnDestroy()
 	{
 		GameManager.instance.playerLives -= 1;
