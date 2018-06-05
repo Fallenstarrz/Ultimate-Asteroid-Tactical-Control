@@ -30,8 +30,8 @@ public class TargetPlayer : MonoBehaviour
 		}
 	}
 
-
-	void TargetInstantly() // TODO: The below two functions can be cleaned up a bit, see modules for info
+	// Target player instantly on spawn, called from start
+	void TargetInstantly()
 	{
 		Vector3 direction = player.position - transform.position;
 		direction.Normalize ();
@@ -39,8 +39,8 @@ public class TargetPlayer : MonoBehaviour
 		transform.rotation = Quaternion.Euler (0, 0, zAngle);
 	}
 
-
-	void TargetDelayed() // TODO: The below two functions can be cleaned up a bit, see modules for info
+	// Target player on every frame
+	void TargetDelayed()
 	{
 		Vector3 direction = player.position - transform.position;
 		direction.Normalize ();

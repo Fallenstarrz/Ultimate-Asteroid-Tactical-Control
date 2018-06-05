@@ -9,10 +9,6 @@ public class PlayerController : MonoBehaviour
 	public Vector2 playerStartPosition;
 	private ShootLaser shootLaser;
 
-	private GameObject spawnedEnemy1;
-	private GameObject spawnedEnemy2;
-	private GameObject spawnedEnemy3;
-
 	void Start () 
 	{
 		// When object is constructed set it's position to the designer defined startPosition
@@ -27,7 +23,7 @@ public class PlayerController : MonoBehaviour
 		fireLaser ();
 	}
 
-	// Do stuff when destroyed
+	// Remove 1 life from Gamemanager and destroy all spawned enemies
 	void OnDestroy()
 	{
 		GameManager.instance.playerLives -= 1;
