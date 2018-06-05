@@ -5,18 +5,7 @@ using UnityEngine;
 public class LevelBoundaries : MonoBehaviour 
 {
 
-	// Use this for initialization
-	void Start () 
-	{
-
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		
-	}
-
+	// Use a trigger box as level bounds, if anythign with tags player, or enemy leave then destroy them
 	void OnTriggerExit2D (Collider2D other)
 	{
 		if(other.gameObject.tag == "Player")

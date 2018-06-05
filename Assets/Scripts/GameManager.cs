@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 	// This will Spawn Player
 	void SpawnPlayer()
 	{
-		if (spawnedPlayer == null && playerLives >= 0)
+		if (spawnedPlayer == null && playerLives > 0)
 		{
 			spawnedPlayer = Instantiate (player);
 		}
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 	// Ends the Game
 	void EndGame()
 	{
-		if (playerLives < 0) 
+		if (playerLives <= 0) 
 		{
 			Application.Quit ();
 			Debug.Log("EXITING GAME!");

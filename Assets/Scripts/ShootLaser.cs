@@ -8,17 +8,7 @@ public class ShootLaser : MonoBehaviour
 	public float laserFireRate;
 	float laserCooldown = 0;
 
-	// Use this for initialization
-	void Start () 
-	{
-		
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-
-	}
+	// Instantiate a laser if cooldown is 0
 	public void FireLaser()
 	{
 		laserCooldown -= Time.deltaTime;

@@ -8,10 +8,10 @@ public class TargetPlayer : MonoBehaviour
 	private Transform player;
 	public bool tracking;
 
-	// Use this for initialization
+	// set target to player when this component is created
 	void Start () 
 	{
-		if (GameManager.instance.player)
+		if (GameManager.instance.spawnedPlayer)
 		{
 			player = GameManager.instance.spawnedPlayer.transform as Transform;
 		}
@@ -21,7 +21,7 @@ public class TargetPlayer : MonoBehaviour
 		}
 	}
 	
-	// Update is called once per frame
+	// keep searching for that target every frame
 	void Update () 
 	{
 		if ((tracking == true) && (player))
@@ -30,18 +30,21 @@ public class TargetPlayer : MonoBehaviour
 		}
 	}
 
-	void TargetInstantly() // The below two functions can be cleaned up a bit, see modules for info
+
+	void TargetInstantly() // TODO: The below two functions can be cleaned up a bit, see modules for info
 	{
-		Vector3 dir = player.position - transform.position;
-		dir.Normalize ();
-		float zAngle = (Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg - 90);
+		Vector3 direction = player.position - transform.position;
+		direction.Normalize ();
+		float zAngle = (Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg - 90);
 		transform.rotation = Quaternion.Euler (0, 0, zAngle);
 	}
-	void TargetDelayed()
+
+
+	void TargetDelayed() // TODO: The below two functions can be cleaned up a bit, see modules for info
 	{
-		Vector3 dir = player.position - transform.position;
-		dir.Normalize ();
-		float zAngle = (Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg - 90);
+		Vector3 direction = player.position - transform.position;
+		direction.Normalize ();
+		float zAngle = (Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg - 90);
 		Quaternion targetLocation = Quaternion.Euler (0, 0, zAngle);
 		transform.rotation = Quaternion.RotateTowards (transform.rotation, targetLocation, enemyRotationSpeed * Time.deltaTime);
 	}

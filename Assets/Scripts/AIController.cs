@@ -7,17 +7,20 @@ public class AIController : MonoBehaviour
 	private ShootLaser shootLaser;
 	public bool canShoot;
 
+	//Add this object to enemiesSpawned List
 	void Start () 
 	{
 		GameManager.instance.enemiesSpawned.Add (this.gameObject);
 		shootLaser = GetComponent<ShootLaser> ();
 	}
 
+	// Remove this objkect from enemiesSpawned List
 	void OnDestroy()
 	{
 		GameManager.instance.enemiesSpawned.Remove (this.gameObject);
 	}
 
+	// Make AI shoot a laser
 	void Update () 
 	{
 		if (canShoot == true) 

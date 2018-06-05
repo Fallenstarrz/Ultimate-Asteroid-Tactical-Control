@@ -6,15 +6,9 @@ public class DestroyTimer : MonoBehaviour
 {
 	public float lifespan;
 
-	// Use this for initialization
+	// Destroy object after X designer defined seconds
 	void Start () 
 	{
 		Destroy (gameObject, lifespan);
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		
 	}
 }
